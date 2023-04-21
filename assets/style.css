@@ -1,0 +1,313 @@
+
+body {
+  font-family: "Sora", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #17171a;
+  -webkit-transition: 0.3s ease-in-out !important;
+  transition: 0.3s ease-in-out !important;
+}
+
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation 0.2s infinite;
+  opacity: 0.7;
+  visibility: visible;
+}
+
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
+}
+
+.container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+}
+
+#profilePicture,
+#profilePicture img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 40px auto 20px;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#userName {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.25;
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+#links {
+  max-width: 600px;
+  width: auto;
+  display: block;
+  margin: 27px auto;
+}
+
+.link {
+  position: relative;
+  background: linear-gradient(45deg, rgba(127,90,240,1), rgb(78, 2, 255));
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  padding: 10px; /* 17px */
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 500ms cubic-bezier(.08, .59, .29, .99);
+}
+
+
+@media (hover: hover) {
+    .link:hover {
+        box-shadow: rgb(78, 2, 255) 0 4px 12px;
+        transform: translateY(-5px);
+    }
+}
+
+
+/*-------------------------popup------------------------*/
+/* credits: https://www.youtube.com/watch?v=lAS2glU0xlc */
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.popup {
+  position: relative;
+  top: -43%;
+  /* right: -100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  /* max-height: 500px; */
+  width: auto;
+  height: auto;
+  margin: 56px;
+  background-color: black;
+  /* transform: rotate(32deg); */
+  transform: scale(0);
+  transition: 0.5s ease-in-out;
+}
+
+.popup-photo {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.popup-photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.overlay:target .popup {
+  transform: scale(1);
+  top: 0;
+  /* right: 0; */
+  /* transform: rotate(0); */
+}
+
+.popup-close {
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.9rem;
+  font-weight: 400;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 4;
+  color: rgb(0, 0, 0);
+  line-height: 3rem;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 1s cubic-bezier(.08, .59, .29, .99);
+}
+
+@media (hover: hover) {
+  .popup-close:hover {
+    background: linear-gradient(45deg, rgba(127,90,240,1), rgb(78, 2, 255));
+    color: rgb(255, 255, 255);
+  }
+}
+
+.popup-close:active {
+  background: linear-gradient(45deg, rgba(127,90,240,1), rgb(78, 2, 255));
+  color: rgb(255, 255, 255);
+}
+
+
+/*-----------------------------
+  loading_overlay
+-----------------------------*/
+.loaded-page {
+    z-index: 12;
+  }
+  .loaded-page .loading_overlay {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.6s !important;
+    -moz-transition: opacity 0.6s !important;
+    -o-transition: opacity 0.6s !important;
+    -ms-transition: opacity 0.6s !important;
+    transition: opacity 0.6s !important;
+  }
+  
+  .loading_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    overflow: hidden;
+    position: fixed;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loading_overlay .loader_logo {
+    position: relative;
+  }
+  .loading_overlay .loader_logo .logo {
+  max-height: 100px;
+    -webkit-animation: fadeIn 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important;
+    -moz-animation: fadeIn 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important;
+    -o-animation: fadeIn 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important;
+    -ms-animation: fadeIn 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important;
+    animation: fadeIn 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both !important;
+  }
+
+  
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+      -webkit-filter: blur(20px);
+      filter: blur(20px);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      -webkit-filter: blur(20px);
+      filter: blur(20px);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+    }
+  }
+  
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+
+
+
