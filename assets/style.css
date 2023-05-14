@@ -78,7 +78,13 @@ body {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 20%);
+  transform: translate(-50%, 15%);
+}
+
+@media (max-width: 768px) {
+  .container {
+    transform: translate(-50%, 10%);
+  }
 }
 
 #profilePicture,
